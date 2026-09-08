@@ -20,8 +20,6 @@ size = Vector3(20, 0.5, 10)
 [sub_resource type="BoxShape3D" id="BoxShape3D_h06de"]
 size = Vector3(19.878357, 1, 9.822998)
 
-[sub_resource type="Environment" id="Environment_wrbek"]
-
 [sub_resource type="BoxMesh" id="BoxMesh_j87l1"]
 size = Vector3(6, 1, 5)
 
@@ -51,6 +49,9 @@ albedo_color = Color(1, 0.8980392, 0.09411765, 1)
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vttml"]
 radius = 0.17675781
 height = 0.8339844
+
+[sub_resource type="Environment" id="Environment_wrbek"]
+ambient_light_color = Color(0.67150897, 0.566182, 0.49117064, 1)
 
 [node name="Nivel" type="Node3D" unique_id=2018608489]
 
@@ -88,18 +89,15 @@ shape = SubResource("BoxShape3D_h06de")
 [node name="StaticBody3D" type="StaticBody3D" parent="plataforma2" unique_id=1048408804]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="plataforma2/StaticBody3D" unique_id=1323554587]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17.007097)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18.894123)
 mesh = SubResource("BoxMesh_wrbek")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="plataforma2/StaticBody3D" unique_id=1217620655]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0262146, 0, -16.839706)
 shape = SubResource("BoxShape3D_h06de")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=123353991]
-environment = SubResource("Environment_wrbek")
-
 [node name="plataforma5" type="Node3D" parent="." unique_id=1165238112]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.452532, -6.895604)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.06966, 6.452532, -6.895604)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="plataforma5" unique_id=1903844893]
 
@@ -111,7 +109,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19812012, 0, 0.034088135)
 shape = SubResource("BoxShape3D_ymy7k")
 
 [node name="Plataforma3" type="Node3D" parent="." unique_id=931953143]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3340359, 4.4777603)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3340359, 8.179377)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Plataforma3" unique_id=1989588804]
 
@@ -173,6 +171,12 @@ surface_material_override/0 = SubResource("StandardMaterial3D_j87l1")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="moneda3" unique_id=1382095187]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3069837, 0.76732373, -0.016661018)
 shape = SubResource("CapsuleShape3D_vttml")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=123353991]
+environment = SubResource("Environment_wrbek")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=196934508]
+transform = Transform3D(1, 0, 0, 0, -0.013805181, 0.99990475, 0, -0.99990475, -0.013805181, 0, 27.989727, -10.215771)
 
 [connection signal="body_entered" from="moneda1" to="player" method="_on_moneda_1_body_entered"]
 [connection signal="body_entered" from="moneda1" to="moneda1" method="_on_body_entered"]
