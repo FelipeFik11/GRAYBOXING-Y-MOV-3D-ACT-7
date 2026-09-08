@@ -9,24 +9,43 @@ albedo_color = Color(0.023529412, 0.019607844, 0, 1)
 
 [sub_resource type="PrismMesh" id="PrismMesh_j87l1"]
 material = SubResource("StandardMaterial3D_7gdj4")
-size = Vector3(0.08, 0.08, 0.08)
+size = Vector3(0.1, 0.1, 0.1)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ymy7k"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_wrbek"]
+size = Vector3(20, 0.5, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h06de"]
+size = Vector3(19.878357, 1, 9.822998)
 
 [node name="Nivel" type="Node3D" unique_id=2018608489]
 
 [node name="player" type="CharacterBody3D" parent="." unique_id=1258938352]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2994547, 1.2486155, 0)
 script = ExtResource("1_wrbek")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="player" unique_id=930937838]
 mesh = SubResource("CapsuleMesh_h06de")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="player/MeshInstance3D" unique_id=697557128]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5815225, -1.5953746)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 mesh = SubResource("PrismMesh_j87l1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="player" unique_id=1607145338]
 shape = SubResource("CapsuleShape3D_ymy7k")
 
 [node name="Camera3D" type="Camera3D" parent="player" unique_id=2055234067]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5892939, -0.33892775)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17776549, 0)
+current = true
+
+[node name="plataforma1" type="Node3D" parent="." unique_id=1542342760]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="plataforma1" unique_id=249214980]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="plataforma1/StaticBody3D" unique_id=345123383]
+mesh = SubResource("BoxMesh_wrbek")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="plataforma1/StaticBody3D" unique_id=1797513926]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0262146, 0, 0.067993164)
+shape = SubResource("BoxShape3D_h06de")
