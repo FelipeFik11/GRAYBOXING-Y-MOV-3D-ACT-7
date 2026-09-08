@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ciskr6uewtmoj"]
 
 [ext_resource type="Script" uid="uid://wbn0fwrnjv84" path="res://player.gd" id="1_wrbek"]
+[ext_resource type="Script" uid="uid://bhcet4ofx4y6o" path="res://moneda_1.gd" id="2_h06de"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_h06de"]
 
@@ -21,6 +22,12 @@ size = Vector3(19.878357, 1, 9.822998)
 
 [sub_resource type="Environment" id="Environment_wrbek"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_j87l1"]
+size = Vector3(6, 1, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ymy7k"]
+size = Vector3(6.2233887, 1, 4.888611)
+
 [sub_resource type="BoxMesh" id="BoxMesh_h06de"]
 size = Vector3(10, 1, 15)
 
@@ -28,10 +35,22 @@ size = Vector3(10, 1, 15)
 size = Vector3(9.795197, 1, 14.466248)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wrbek"]
-size = Vector3(3.925537, 0.54797363, 1)
+size = Vector3(3.925537, 0.54797363, 2.0067139)
 
 [sub_resource type="BoxMesh" id="BoxMesh_7gdj4"]
 size = Vector3(4, 0.5, 2)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7gdj4"]
+top_radius = 0.4
+bottom_radius = 0.4
+height = 0.15
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j87l1"]
+albedo_color = Color(1, 0.8980392, 0.09411765, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vttml"]
+radius = 0.17675781
+height = 0.8339844
 
 [node name="Nivel" type="Node3D" unique_id=2018608489]
 
@@ -79,7 +98,20 @@ shape = SubResource("BoxShape3D_h06de")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=123353991]
 environment = SubResource("Environment_wrbek")
 
+[node name="plataforma5" type="Node3D" parent="." unique_id=1165238112]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.452532, -6.895604)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="plataforma5" unique_id=1903844893]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="plataforma5/StaticBody3D" unique_id=1687386029]
+mesh = SubResource("BoxMesh_j87l1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="plataforma5/StaticBody3D" unique_id=1729067123]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19812012, 0, 0.034088135)
+shape = SubResource("BoxShape3D_ymy7k")
+
 [node name="Plataforma3" type="Node3D" parent="." unique_id=931953143]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3340359, 4.4777603)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Plataforma3" unique_id=1989588804]
 
@@ -96,9 +128,55 @@ shape = SubResource("BoxShape3D_7gdj4")
 [node name="StaticBody3D" type="StaticBody3D" parent="plataforma 4" unique_id=1830208669]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="plataforma 4/StaticBody3D" unique_id=594967654]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1278076, 3.6743584, -12.082106)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1278076, 3.6743584, -11.578749)
 shape = SubResource("BoxShape3D_wrbek")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="plataforma 4/StaticBody3D" unique_id=1419577604]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.110762, 3.672154, -11.5514765)
 mesh = SubResource("BoxMesh_7gdj4")
+
+[node name="moneda1" type="Area3D" parent="." unique_id=167271456]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014382362, 0.07288873, 0)
+script = ExtResource("2_h06de")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="moneda1" unique_id=1823937865]
+transform = Transform3D(-0.010227426, 0.9999477, 0, -0.9999477, -0.010227426, 0, 0, 0, 1, 0.30611324, 0.7497511, 0)
+mesh = SubResource("CylinderMesh_7gdj4")
+surface_material_override/0 = SubResource("StandardMaterial3D_j87l1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="moneda1" unique_id=3382795]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3069837, 0.76732373, -0.016661018)
+shape = SubResource("CapsuleShape3D_vttml")
+
+[node name="moneda2" type="Area3D" parent="." unique_id=356820265]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.609445, 3.7684884, -11.475047)
+script = ExtResource("2_h06de")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="moneda2" unique_id=1429430002]
+transform = Transform3D(-0.010227426, 0.9999477, 0, -0.9999477, -0.010227426, 0, 0, 0, 1, 0.30611324, 0.7497511, 0)
+mesh = SubResource("CylinderMesh_7gdj4")
+surface_material_override/0 = SubResource("StandardMaterial3D_j87l1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="moneda2" unique_id=1205946771]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3069837, 0.76732373, -0.016661018)
+shape = SubResource("CapsuleShape3D_vttml")
+
+[node name="moneda3" type="Area3D" parent="." unique_id=440846154]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1843524, 9.894444, 5.6332345)
+script = ExtResource("2_h06de")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="moneda3" unique_id=1230816374]
+transform = Transform3D(-0.010227426, 0.9999477, 0, -0.9999477, -0.010227426, 0, 0, 0, 1, 0.30611324, 0.7497511, 0)
+mesh = SubResource("CylinderMesh_7gdj4")
+surface_material_override/0 = SubResource("StandardMaterial3D_j87l1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="moneda3" unique_id=1382095187]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3069837, 0.76732373, -0.016661018)
+shape = SubResource("CapsuleShape3D_vttml")
+
+[connection signal="body_entered" from="moneda1" to="player" method="_on_moneda_1_body_entered"]
+[connection signal="body_entered" from="moneda1" to="moneda1" method="_on_body_entered"]
+[connection signal="body_entered" from="moneda2" to="player" method="_on_moneda_1_body_entered"]
+[connection signal="body_entered" from="moneda2" to="moneda2" method="_on_body_entered"]
+[connection signal="body_entered" from="moneda3" to="player" method="_on_moneda_1_body_entered"]
+[connection signal="body_entered" from="moneda3" to="moneda3" method="_on_body_entered"]

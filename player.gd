@@ -92,3 +92,7 @@ func _physics_process(delta):
 
 
 	move_and_slide()
+
+
+func _on_moneda_1_body_entered(body: Node3D) -> void:
+	pass
