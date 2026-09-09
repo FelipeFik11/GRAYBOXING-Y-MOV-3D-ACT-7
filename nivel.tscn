@@ -33,6 +33,16 @@ size = Vector3(20, 0.5, 10)
 [sub_resource type="BoxShape3D" id="BoxShape3D_h06de"]
 size = Vector3(19.878357, 1, 9.822998)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d04yg"]
+albedo_texture = ExtResource("4_u1w1e")
+
+[sub_resource type="BoxMesh" id="BoxMesh_u1w1e"]
+material = SubResource("StandardMaterial3D_d04yg")
+size = Vector3(5, 0.1, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sdrig"]
+size = Vector3(4.757202, 0.21066284, 2.7957764)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e70fy"]
 albedo_texture = ExtResource("3_d04yg")
 
@@ -130,17 +140,17 @@ mesh = SubResource("BoxMesh_wrbek")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0262146, 0, 0.067993164)
 shape = SubResource("BoxShape3D_h06de")
 
-[node name="plataforma2" type="Node3D" parent="." unique_id=1478494686]
+[node name="plataforma2" type="Node3D" parent="." unique_id=779976723]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="plataforma2" unique_id=1048408804]
+[node name="StaticBody3D" type="StaticBody3D" parent="plataforma2" unique_id=1754789067]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="plataforma2/StaticBody3D" unique_id=1323554587]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18.894123)
-mesh = SubResource("BoxMesh_wrbek")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="plataforma2/StaticBody3D" unique_id=575530962]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.29751, 1.828629, -7.2996225)
+mesh = SubResource("BoxMesh_u1w1e")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="plataforma2/StaticBody3D" unique_id=1217620655]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0262146, 0, -19.039265)
-shape = SubResource("BoxShape3D_h06de")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="plataforma2/StaticBody3D" unique_id=1362222787]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.228194, 1.8129191, -7.199148)
+shape = SubResource("BoxShape3D_sdrig")
 
 [node name="plataforma5" type="Node3D" parent="." unique_id=1165238112]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.06966, 6.452532, -6.895604)
@@ -193,7 +203,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.082014, 6.1780944, 11.2217
 shape = SubResource("BoxShape3D_vttml")
 
 [node name="moneda1" type="Area3D" parent="." unique_id=167271456]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014382362, 16.769619, -0.71444416)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014382362, 16.151745, -0.71444416)
 script = ExtResource("2_h06de")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="moneda1" unique_id=1823937865]
