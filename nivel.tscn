@@ -1,22 +1,24 @@
 [gd_scene format=3 uid="uid://ciskr6uewtmoj"]
 
+[ext_resource type="Script" uid="uid://bddvjrdq67xkc" path="res://nivel.gd" id="1_sdrig"]
 [ext_resource type="Script" uid="uid://wbn0fwrnjv84" path="res://player.gd" id="1_wrbek"]
 [ext_resource type="Texture2D" uid="uid://d0p0esyx1jp2v" path="res://Dark/texture_01.png" id="2_6apml"]
 [ext_resource type="Script" uid="uid://bhcet4ofx4y6o" path="res://moneda_1.gd" id="2_h06de"]
+[ext_resource type="Script" uid="uid://coo2mpso4v5cm" path="res://indicador.gd" id="2_u1w1e"]
 [ext_resource type="Texture2D" uid="uid://dshwo041mvh00" path="res://Purple/texture_05.png" id="3_d04yg"]
 [ext_resource type="Texture2D" uid="uid://b26onrsvxaw1j" path="res://Green/texture_08.png" id="4_u1w1e"]
 [ext_resource type="Texture2D" uid="uid://c1cf5hb554smu" path="res://Orange/texture_01.png" id="5_sdrig"]
 [ext_resource type="Texture2D" uid="uid://dmyvimjxv45bh" path="res://Red/texture_01.png" id="6_l1yqx"]
 [ext_resource type="Texture2D" uid="uid://bos3mi4qnhkd7" path="res://Red/texture_05.png" id="8_d04yg"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_h06de"]
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7gdj4"]
 albedo_color = Color(0.023529412, 0.019607844, 0, 1)
 
 [sub_resource type="PrismMesh" id="PrismMesh_j87l1"]
 material = SubResource("StandardMaterial3D_7gdj4")
-size = Vector3(0.1, 0.1, 0.1)
+size = Vector3(0.01, 0.01, 0.01)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_h06de"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ymy7k"]
 
@@ -95,8 +97,7 @@ albedo_color = Color(1, 0.8980392, 0.09411765, 1)
 radius = 0.17675781
 height = 0.8339844
 
-[sub_resource type="Environment" id="Environment_wrbek"]
-ambient_light_color = Color(0.67150897, 0.566182, 0.49117064, 1)
+[sub_resource type="Environment" id="Environment_u1w1e"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u1w1e"]
 size = Vector3(3.8523006, 0.85891724, 5.871155)
@@ -109,17 +110,19 @@ material = SubResource("StandardMaterial3D_sdrig")
 size = Vector3(4, 0.8, 6)
 
 [node name="Nivel" type="Node3D" unique_id=2018608489]
+script = ExtResource("1_sdrig")
 
 [node name="player" type="CharacterBody3D" parent="." unique_id=1258938352]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2994547, 1.2486155, 0)
 script = ExtResource("1_wrbek")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="player" unique_id=930937838]
-mesh = SubResource("CapsuleMesh_h06de")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="player/MeshInstance3D" unique_id=697557128]
+[node name="indicador" type="MeshInstance3D" parent="player" unique_id=697557128]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 mesh = SubResource("PrismMesh_j87l1")
+script = ExtResource("2_u1w1e")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="player" unique_id=930937838]
+mesh = SubResource("CapsuleMesh_h06de")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="player" unique_id=1607145338]
 shape = SubResource("CapsuleShape3D_ymy7k")
@@ -242,11 +245,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3069837, 0.76732373, -0.016
 shape = SubResource("CapsuleShape3D_vttml")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=123353991]
-environment = SubResource("Environment_wrbek")
+environment = SubResource("Environment_u1w1e")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=196934508]
 transform = Transform3D(1, 0, 0, 0, -0.013805181, 0.99990475, 0, -0.99990475, -0.013805181, 0, 27.989727, -10.215771)
-light_energy = 4.067
+light_color = Color(1, 0.99607843, 1, 1)
+light_energy = 9.548
 
 [node name="plataforma7" type="Node3D" parent="." unique_id=938522255]
 

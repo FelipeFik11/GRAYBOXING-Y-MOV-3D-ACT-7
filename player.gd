@@ -6,7 +6,7 @@ extends CharacterBody3D
 @export var fuerza_salto := 8.5
 @export var saltos_maximos := 2
 @export var sensibilidad_mouse := 0.003
-
+@onready var indicador = $Indicador
 @onready var camera = $Camera3D
 
 var saltos_realizados := 0
