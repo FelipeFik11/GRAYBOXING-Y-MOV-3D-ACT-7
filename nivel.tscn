@@ -2,14 +2,16 @@
 
 [ext_resource type="Script" uid="uid://bddvjrdq67xkc" path="res://nivel.gd" id="1_sdrig"]
 [ext_resource type="Script" uid="uid://wbn0fwrnjv84" path="res://player.gd" id="1_wrbek"]
-[ext_resource type="Texture2D" uid="uid://d0p0esyx1jp2v" path="res://Dark/texture_01.png" id="2_6apml"]
 [ext_resource type="Script" uid="uid://bhcet4ofx4y6o" path="res://moneda_1.gd" id="2_h06de"]
 [ext_resource type="Script" uid="uid://coo2mpso4v5cm" path="res://indicador.gd" id="2_u1w1e"]
 [ext_resource type="Texture2D" uid="uid://dshwo041mvh00" path="res://Purple/texture_05.png" id="3_d04yg"]
+[ext_resource type="Texture2D" uid="uid://cxanj2o6w5xhr" path="res://Dark/piso.png" id="4_l1yqx"]
 [ext_resource type="Texture2D" uid="uid://b26onrsvxaw1j" path="res://Green/texture_08.png" id="4_u1w1e"]
 [ext_resource type="Texture2D" uid="uid://c1cf5hb554smu" path="res://Orange/texture_01.png" id="5_sdrig"]
 [ext_resource type="Texture2D" uid="uid://dmyvimjxv45bh" path="res://Red/texture_01.png" id="6_l1yqx"]
 [ext_resource type="Texture2D" uid="uid://bos3mi4qnhkd7" path="res://Red/texture_05.png" id="8_d04yg"]
+[ext_resource type="Texture2D" uid="uid://c224wpk261n6g" path="res://pared.png" id="12_1il4o"]
+[ext_resource type="PackedScene" uid="uid://ukmgyrj1um04" path="res://borrado.tscn" id="12_kreve"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7gdj4"]
 albedo_color = Color(0.023529412, 0.019607844, 0, 1)
@@ -23,13 +25,12 @@ size = Vector3(0.01, 0.01, 0.01)
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ymy7k"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1il4o"]
-albedo_texture = ExtResource("2_6apml")
+albedo_texture = ExtResource("4_l1yqx")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kreve"]
-albedo_texture = ExtResource("2_6apml")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kreve"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_wrbek"]
-material = SubResource("StandardMaterial3D_kreve")
+material = SubResource("ShaderMaterial_kreve")
 size = Vector3(20, 0.5, 10)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h06de"]
@@ -97,8 +98,6 @@ albedo_color = Color(1, 0.8980392, 0.09411765, 1)
 radius = 0.17675781
 height = 0.8339844
 
-[sub_resource type="Environment" id="Environment_u1w1e"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_u1w1e"]
 size = Vector3(3.8523006, 0.85891724, 5.871155)
 
@@ -108,6 +107,18 @@ albedo_texture = ExtResource("8_d04yg")
 [sub_resource type="BoxMesh" id="BoxMesh_l1yqx"]
 material = SubResource("StandardMaterial3D_sdrig")
 size = Vector3(4, 0.8, 6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kreve"]
+albedo_texture = ExtResource("12_1il4o")
+normal_enabled = true
+normal_scale = 5.2
+uv1_scale = Vector3(2, 2, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_e70fy"]
+material = SubResource("StandardMaterial3D_kreve")
+size = Vector3(1, 10, 20)
+
+[sub_resource type="Environment" id="Environment_u1w1e"]
 
 [node name="Nivel" type="Node3D" unique_id=2018608489]
 script = ExtResource("1_sdrig")
@@ -244,14 +255,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_j87l1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3069837, 0.76732373, -0.016661018)
 shape = SubResource("CapsuleShape3D_vttml")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=123353991]
-environment = SubResource("Environment_u1w1e")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=196934508]
-transform = Transform3D(1, 0, 0, 0, -0.013805181, 0.99990475, 0, -0.99990475, -0.013805181, 0, 27.989727, -10.215771)
-light_color = Color(1, 0.99607843, 1, 1)
-light_energy = 9.548
-
 [node name="plataforma7" type="Node3D" parent="." unique_id=938522255]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="plataforma7" unique_id=1810179206]
@@ -276,6 +279,24 @@ shape = SubResource("BoxShape3D_u1w1e")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="plataforma8/StaticBody3D" unique_id=1610301173]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6810036, 11.254841, 9.371082)
 mesh = SubResource("BoxMesh_l1yqx")
+
+[node name="pared" type="Node3D" parent="." unique_id=590539036]
+transform = Transform3D(-0.1414023, 0, -0.9899522, 0, 1, 0, 0.9899522, 0, -0.1414023, 5.3143578, 0, -19.5147)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="pared" unique_id=1834832840]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19.850512)
+mesh = SubResource("BoxMesh_e70fy")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=123353991]
+environment = SubResource("Environment_u1w1e")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=196934508]
+transform = Transform3D(1, 0, 0, 0, -0.013805181, 0.99990475, 0, -0.99990475, -0.013805181, 0, 27.989727, -10.215771)
+light_color = Color(1, 0.99607843, 1, 1)
+light_energy = 9.548
+
+[node name="Borrado" parent="." unique_id=1379896353 instance=ExtResource("12_kreve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.734882, 0, 0)
 
 [connection signal="body_entered" from="moneda1" to="player" method="_on_moneda_1_body_entered"]
 [connection signal="body_entered" from="moneda1" to="moneda1" method="_on_body_entered"]
