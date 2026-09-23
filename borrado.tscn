@@ -2,15 +2,15 @@
 
 [ext_resource type="Script" uid="uid://c8dfatm0ql3hs" path="res://borrado.gd" id="1_c4peg"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_35n15"]
+[sub_resource type="SphereMesh" id="SphereMesh_c4peg"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_siyl0"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_35n15"]
 
-[node name="Node3D" type="Node3D" unique_id=1379896353]
+[node name="borrado" type="Area3D" unique_id=925633522]
 script = ExtResource("1_c4peg")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=229021300]
-mesh = SubResource("SphereMesh_35n15")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=955521411]
+mesh = SubResource("SphereMesh_c4peg")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=995375417]
-shape = SubResource("SphereShape3D_siyl0")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1881101101]
+shape = SubResource("SphereShape3D_35n15")

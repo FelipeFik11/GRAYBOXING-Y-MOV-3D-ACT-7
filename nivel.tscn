@@ -123,7 +123,7 @@ size = Vector3(1, 10, 20)
 [node name="Nivel" type="Node3D" unique_id=2018608489]
 script = ExtResource("1_sdrig")
 
-[node name="player" type="CharacterBody3D" parent="." unique_id=1258938352]
+[node name="player" type="CharacterBody3D" parent="." unique_id=1258938352 groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2994547, 1.2486155, 0)
 script = ExtResource("1_wrbek")
 
@@ -295,8 +295,8 @@ transform = Transform3D(1, 0, 0, 0, -0.013805181, 0.99990475, 0, -0.99990475, -0
 light_color = Color(1, 0.99607843, 1, 1)
 light_energy = 9.548
 
-[node name="Borrado" parent="." unique_id=1379896353 instance=ExtResource("12_kreve")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.734882, 0, 0)
+[node name="borrado" parent="." unique_id=925633522 instance=ExtResource("12_kreve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.705648, 0, 0.54321766)
 
 [connection signal="body_entered" from="moneda1" to="player" method="_on_moneda_1_body_entered"]
 [connection signal="body_entered" from="moneda1" to="moneda1" method="_on_body_entered"]
