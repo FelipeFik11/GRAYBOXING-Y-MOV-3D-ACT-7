@@ -17,7 +17,3 @@ func finalizar_juego():
 	print("¡Nivel completado!")
 
 	get_tree().paused = true
-
-
-func _on_zona_de_borrado_body_entered(body: Node3D) -> void:
-	pass # Replace with function body.

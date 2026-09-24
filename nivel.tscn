@@ -304,3 +304,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.705648, 0, 0.54321766)
 [connection signal="body_entered" from="moneda2" to="moneda2" method="_on_body_entered"]
 [connection signal="body_entered" from="moneda3" to="player" method="_on_moneda_1_body_entered"]
 [connection signal="body_entered" from="moneda3" to="moneda3" method="_on_body_entered"]
+[connection signal="body_entered" from="borrado" to="borrado" method="_on_body_entered"]
